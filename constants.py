@@ -10,12 +10,22 @@ param = {
     "TEAM2": 6
 }
 
-#0 = GRASS, 1 = WATER, 2 = SAND, 3 = LAVA, 4 = COVER
-tilecolours = {0:(0,200,0), 
-    1:(0,0,255), 
-    2:(200,180,200),
-    3:(255,0,0), 
-    4:(255,255,255)
+# define tile types as integers
+TILE_GRASS      = 0
+TILE_WATER      = 1
+TILE_SAND       = 2
+TILE_LAVA       = 3
+TILE_COVER      = 4
+TILE_SOLDIER    = 5
+
+# define tile type colours as rgb value tuples
+tilecolours = {
+    TILE_GRASS: (0, 200, 0), # green
+    TILE_WATER: (0, 0, 255), # blue
+    TILE_SAND:  (200, 180, 200),
+    TILE_LAVA:  (255, 0, 0),
+    TILE_COVER: (255, 255, 255),
 }
 
 soldier_brain = [120, 10, 1]
+
