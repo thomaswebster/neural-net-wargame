@@ -6,6 +6,7 @@ from random import randint
 
 ###LOCAL IMPORTS
 import constants
+import soldier
 
 '''
 Map object to store game data
@@ -27,6 +28,8 @@ class Map(object):
         
         self.data = [[0]*dims[0] for i in range(dims[1])]
 
+        #self.team1 = [Soldier()]
+
     '''
     Draws the map to the current gamescreen
 
@@ -40,7 +43,7 @@ class Map(object):
             for j in range(self.dims[1]):
 
                 pygame.draw.rect(screen, 
-                    constants.tilecolours[self.data[i][j]], 
+                    constants.tilecolours[self.data[i+pos[0]][j+pos[1]]], 
                     [i * tilesize, j * tilesize, 
                     tilesize, tilesize])
 

@@ -37,7 +37,7 @@ class ANN(object):
             for m in range(self.sizes[o+1]):                                    #for each neuron in the layer
                 self.seed_neuron(o, m, seedrange)
 
-    def seed_neuron(self, layer, index, weightindex = 0, seedrange):
+    def seed_neuron(self, layer, index, seedrange, weightindex = 0):
         self.neurons[layer][index].weights = [random()*(seedrange[1]-seedrange[0]) - seedrange[0] for i in range(self.sizes[layer])]
         self.neurons[layer][index].bias = random()*(seedrange[1]-seedrange[0]) - seedrange[0]
 

@@ -3,9 +3,9 @@
 
 #general constants for the project
 param = {
-    "SCREENSIZE":   [320,320],
-    "TILE":         16,
-    "MAPSIZE":      [20,20]
+    "SCREENSIZE": [320,320],
+    "TILE": 16,
+    "MAPSIZE": [20,20],
     "TEAM1": 6,
     "TEAM2": 6
 }

@@ -30,8 +30,23 @@ camera = [0, 0]
 
 ###Gameloop
 while True:
+    #get pygame events (input)
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                camera[0] -= 1
+            if event.key == pygame.K_RIGHT:
+                camera[0] += 1
+            if event.key == pygame.K_UP:
+                camera[1] -= 1
+            if event.key == pygame.K_DOWN:
+                camera[1] += 1
+
+
     #draw gamemap
     gamemap.draw(screen, camera, cnst.param["TILE"])
+
+
 
     #draw screen
     pygame.display.flip()
