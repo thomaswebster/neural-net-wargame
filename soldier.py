@@ -61,6 +61,7 @@ class Soldier(object):
         move_right  = 0.75
         move_down   = 1
 
+        """ decide where to move the soldier """
         if abs(output - move_none) < tolerance:
             """ don't move """
             pass
