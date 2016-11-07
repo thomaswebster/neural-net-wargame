@@ -1,3 +1,5 @@
+'''Neural network class, only supporting feed forward networks however any activation function is supported'''
+
 from random import random
 import numpy as np
 
