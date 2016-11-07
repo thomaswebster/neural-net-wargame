@@ -14,13 +14,13 @@ class Soldier(object):
     soldier, that input would have value 1. Other values may represent grass, water etc.
     """
 
-    def __init__(self, x, y):
+    def __init__(self, pos):
         self.brain = ANN(constants.soldier_brain, Neuron.Sigmoid)
 
-        self.pos = [x, y]
+        self.pos = pos
 
     def think(self, squares):
-        
+
         output = self.brain.run(squares)
 
         """ tolerance must be less than the minimum difference between defining values below """
