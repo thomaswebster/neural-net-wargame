@@ -9,13 +9,28 @@ import pygame
 import constants as cnst
 import gamemap
 
+###Initialise pygame
 pygame.init()
 
+###Set screensize from constants
 size = cnst.cnsts["SCREENSIZE"]
+
+###Create pygame distplay object
 screen = pygame.display.set_mode(size)
 
-gamemap = gamemap.Map()
+###Initialise our game map
+gamemap = gamemap.Map(cnst.cnsts["MAPSIZE"])
 
+gamemap.seedmap()
+
+###Camera position on the map
+###Start at 0, 0
+camera = [0, 0]
+
+###Gameloop
 while True:
-    screen.fill((0,0,0))
+    #draw gamemap
+    gamemap.draw(screen, camera, cnst.cnsts["TILE"])
+
+    #draw screen
     pygame.display.flip()
