@@ -20,8 +20,6 @@ class Map(object):
     Initialises the map object
 
     Currently takes only dimensions as the input to initialise an array of map tiles.
-
-
     '''
     def __init__(self, dims):
 
