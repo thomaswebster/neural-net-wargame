@@ -1,4 +1,5 @@
 ###GLOBAL IMPORTS
+import pdb
 import pygame
 
 from random import random
@@ -18,22 +19,34 @@ recording which side each of the soldiers is on
 class Map(object):
     def __init__(self, dims):
 
-        self.dims = dims
+        self.dims = dims # size of the map
 
         #self.team1 = [Soldier()]
 
-        self.data = [[0]*dims[0] for i in range(dims[1])]
+        self.data = [[0]*dims[1] for i in range(dims[0])]
 
-    def draw(self, screen, pos, tilesize):
+    def draw(self, screen, camera, tilesize):
+        """ draws the state of the map on the screen, at the current camera position """
 
-        for i in range(self.dims[0]):
+        """ the bounds of what can fit on the screen """
+        bounds = [C.param["SCREENSIZE"][i] // tilesize for i in range(2)]
 
-            for j in range(self.dims[1]):
+        """ make sure the camera isn't out of bounds """
+        for i in range(2):
+            camera[i] = min(self.dims[i] - bounds[i], max(0, camera[i]))
+
+        for i in range(camera[0], camera[0] + bounds[0]):
+            if i > self.dims[0] - 1:
+                raise Exception(C.E_OUT_OF_BOUNDS)
+
+            for j in range(camera[1], camera[1] + bounds[1]):
+                if j > self.dims[1] - 1:
+                    raise Exception(C.E_OUT_OF_BOUNDS)
 
                 pygame.draw.rect(screen,
-                    C.tilecolours[self.data[i+pos[0]][j+pos[1]]],
-                    [i * tilesize, j * tilesize,
-                    tilesize, tilesize])
+                    C.tilecolours[self.data[i][j]],
+                    [(i - camera[0]) * tilesize, (j - camera[1]) * tilesize,
+                        tilesize, tilesize])
 
     def seedmap(self):
         """ seeds the map with random values from either grass, water or sand """

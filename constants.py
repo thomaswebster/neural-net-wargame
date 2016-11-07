@@ -1,11 +1,13 @@
 '''Dictionaries of the project's constants, to allow for iteration over'''
 
+# error messages
+E_OUT_OF_BOUNDS = "Camera out of bounds!"
 
 #general constants for the project
 param = {
     "SCREENSIZE": [320,320],
     "TILE": 16,
-    "MAPSIZE": [20,20],
+    "MAPSIZE": [40,40],
     "TEAM1": 6,
     "TEAM2": 6
 }
